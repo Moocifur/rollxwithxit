@@ -1,0 +1,175 @@
+/* Philosophy Section Styles */
+
+/* Section container with gradient background */
+.section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #2d7d7d, #4fd1c7, #20b2aa);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Section title */
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Philosophy items with glassmorphism effect */
+.item {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Typography */
+.itemTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.itemDescription {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .item {
+    padding: 1.5rem;
+  }
+  
+  .itemTitle {
+    font-size: 1.3rem;
+  }
+  
+  .itemDescription {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .grid {
+    gap: 1.2rem;
+  }
+  
+  .item {
+    padding: 1.2rem;
+  }
+  
+  .itemTitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .itemDescription {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    transition: none;
+  }
+  
+  .item:hover {
+    transform: none;
+  }
+}
+
+/* Focus states */
+.item:focus-within {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
+}
+
+/* Print styles */
+@media print {
+  .section {
+    background: none;
+    padding: 2rem 0;
+  }
+  
+  .title {
+    color: #2d7d7d;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .item {
+    background: none;
+    border: 1px solid #ccc;
+    backdrop-filter: none;
+  }
+  
+  .itemTitle {
+    color: #2d7d7d;
+  }
+  
+  .itemDescription {
+    color: #4a5568;
+  }
+}
