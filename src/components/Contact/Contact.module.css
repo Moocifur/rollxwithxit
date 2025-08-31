@@ -1,10 +1,10 @@
-/* Contact Section Styles */
+/* Contact Component Template Styles */
 
-/* Section container */
+/* Main section container */
 .section {
   padding: 6rem 0;
   background: white;
-  text-align: center;
+  color: #1a202c;
 }
 
 .container {
@@ -13,7 +13,12 @@
   padding: 0 1rem;
 }
 
-/* Section title */
+/* Section header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
 .title {
   font-size: 2.5rem;
   color: #2d7d7d;
@@ -21,85 +26,215 @@
   font-weight: 600;
 }
 
-/* Subtitle */
 .subtitle {
   font-size: 1.2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
   color: #64748b;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Contact items grid */
-.grid {
+/* Main content grid */
+.contentGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 2fr;
   gap: 2rem;
-  margin-bottom: 3rem;
 }
 
-.item {
-  padding: 2rem;
-  background: #f8fafc;
+/* Location card with map */
+.locationCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 15px;
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(45, 125, 125, 0.08);
 }
 
-.item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(45, 125, 125, 0.1);
+.locationCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(45, 125, 125, 0.15);
+  border-color: #4fd1c7;
 }
 
-.itemTitle {
-  color: #2d7d7d;
+.cardContent {
+  padding: 2rem;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   margin-bottom: 1rem;
+}
+
+.cardTitle {
   font-size: 1.3rem;
+  color: #2d7d7d;
+  margin: 0;
   font-weight: 600;
 }
 
-.itemDescription {
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #4fd1c7;
+}
+
+.smallIcon {
+  width: 1rem;
+  height: 1rem;
+  color: #4fd1c7;
+}
+
+.cardDescription {
   color: #4a5568;
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
 
-.itemButton {
-  background: linear-gradient(135deg, #4fd1c7, #2d7d7d);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
+.addressInfo {
+  color: #2d7d7d;
+  margin-bottom: 1rem;
 }
 
-.itemButton:hover {
+.addressPrimary {
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.addressSecondary {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.mapEmbed {
+  height: 16rem;
+  background: #e2e8f0;
+}
+
+/* Info cards container */
+.infoCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.infoCard {
+  padding: 2rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(45, 125, 125, 0.08);
+}
+
+.infoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(45, 125, 125, 0.15);
+  border-color: #4fd1c7;
+}
+
+.iconContainer {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #4fd1c7, #2d7d7d);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.iconContainer:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(45, 125, 125, 0.3);
 }
 
-.itemButton:active {
-  transform: translateY(0);
+.iconContainer .icon {
+  width: 2rem;
+  height: 2rem;
+  color: white;
 }
 
-.itemButton:focus {
-  outline: none;
-  box-shadow: 0 5px 15px rgba(45, 125, 125, 0.3), 0 0 0 2px rgba(79, 209, 199, 0.3);
+/* Contact details */
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-/* Action buttons */
-.actions {
+.primaryContact {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d7d7d;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.primaryContact:hover {
+  color: #4fd1c7;
+  transform: translateY(-1px);
+}
+
+.secondaryContact {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.contactText {
+  color: #4a5568;
+}
+
+/* Schedule information */
+.scheduleList {
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+.scheduleRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.scheduleDay {
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.scheduleTime {
+  color: #2d7d7d;
+  font-weight: 600;
+}
+
+.scheduleTimeClosed {
+  color: #e53e3e;
+  font-weight: 600;
+}
+
+/* Action buttons for extensibility */
+.actionButtons {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-top: 3rem;
 }
 
-.ctaButton {
+.primaryButton {
   background: linear-gradient(135deg, #4fd1c7, #2d7d7d);
   color: white;
   padding: 15px 30px;
@@ -111,24 +246,59 @@
   font-weight: 500;
   letter-spacing: 0.5px;
   box-shadow: 0 4px 15px rgba(45, 125, 125, 0.2);
+  text-decoration: none;
+  display: inline-block;
 }
 
-.ctaButton:hover {
+.primaryButton:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(45, 125, 125, 0.3);
 }
 
-.ctaButton:active {
+.primaryButton:active {
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(45, 125, 125, 0.4);
 }
 
-.ctaButton:focus {
+.primaryButton:focus {
   outline: none;
   box-shadow: 0 10px 25px rgba(45, 125, 125, 0.3), 0 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
+.secondaryButton {
+  background: transparent;
+  color: #2d7d7d;
+  padding: 15px 30px;
+  border: 2px solid #2d7d7d;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.secondaryButton:hover {
+  background: #2d7d7d;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(45, 125, 125, 0.2);
+}
+
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .infoCards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 4rem 0;
@@ -143,29 +313,34 @@
     margin-bottom: 2rem;
   }
   
-  .grid {
+  .infoCards {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
-  .item {
+  .infoCard {
     padding: 1.5rem;
   }
   
-  .itemTitle {
+  .cardTitle {
     font-size: 1.2rem;
   }
   
-  .itemDescription {
+  .cardDescription {
     font-size: 0.95rem;
   }
   
-  .actions {
+  .primaryContact {
+    font-size: 1.25rem;
+  }
+  
+  .actionButtons {
     flex-direction: column;
     align-items: center;
   }
   
-  .ctaButton {
+  .primaryButton,
+  .secondaryButton {
     width: 200px;
     padding: 12px 24px;
     font-size: 1rem;
@@ -185,44 +360,73 @@
     font-size: 1.8rem;
   }
   
-  .item {
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+  
+  .cardContent {
     padding: 1.2rem;
   }
   
-  .itemTitle {
+  .infoCard {
+    padding: 1.2rem;
+  }
+  
+  .iconContainer {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .iconContainer .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .cardTitle {
     font-size: 1.1rem;
   }
   
-  .itemDescription {
+  .cardDescription {
     font-size: 0.9rem;
     margin-bottom: 1rem;
   }
   
-  .itemButton {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+  .primaryContact {
+    font-size: 1.1rem;
+  }
+  
+  .secondaryContact {
+    font-size: 0.8rem;
+  }
+  
+  .mapEmbed {
+    height: 12rem;
   }
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .item {
+  .locationCard,
+  .infoCard,
+  .iconContainer,
+  .primaryContact,
+  .primaryButton,
+  .secondaryButton {
     transition: none;
   }
   
-  .itemButton,
-  .ctaButton {
-    transition: none;
-  }
-  
-  .item:hover,
-  .itemButton:hover,
-  .ctaButton:hover {
+  .locationCard:hover,
+  .infoCard:hover,
+  .iconContainer:hover,
+  .primaryContact:hover,
+  .primaryButton:hover,
+  .secondaryButton:hover {
     transform: none;
   }
   
-  .itemButton:active,
-  .ctaButton:active {
+  .primaryButton:active,
+  .secondaryButton:active {
     transform: none;
   }
 }
@@ -234,16 +438,35 @@
     padding: 2rem 0;
   }
   
-  .item {
+  .locationCard,
+  .infoCard {
     background: none;
     border: 1px solid #e2e8f0;
+    break-inside: avoid;
   }
   
-  .itemButton,
-  .ctaButton {
+  .iconContainer {
+    background: none !important;
+    border: 2px solid #2d7d7d;
+  }
+  
+  .iconContainer .icon {
+    color: #2d7d7d;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
     background: none;
     color: #2d7d7d;
     border: 2px solid #2d7d7d;
     box-shadow: none;
+  }
+  
+  .mapEmbed {
+    display: none;
+  }
+  
+  .actionButtons {
+    display: none;
   }
 }

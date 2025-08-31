@@ -1,0 +1,371 @@
+/* Form Component Template Styles */
+
+/* Main form container */
+.formContainer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 42rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(45, 125, 125, 0.08);
+  height: fit-content;
+  transition: box-shadow 0.3s ease;
+}
+
+.formWrapper:hover {
+  box-shadow: 0 15px 40px rgba(45, 125, 125, 0.12);
+}
+
+/* Form header */
+.formHeader {
+  margin-bottom: 2rem;
+}
+
+.formTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #2d7d7d;
+  text-align: left;
+}
+
+/* Status messages */
+.statusMessage {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.successMessage {
+  background: #f0fdf4;
+  border: 1px solid #4ade80;
+}
+
+.errorMessage {
+  background: #fef2f2;
+  border: 1px solid #f87171;
+}
+
+.statusIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.successMessage .statusIcon {
+  color: #16a34a;
+}
+
+.errorMessage .statusIcon {
+  color: #dc2626;
+}
+
+.statusText {
+  color: #1a202c;
+  font-weight: 500;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Field groups */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+/* Input wrapper for icons */
+.inputWrapper {
+  position: relative;
+}
+
+.inputIcon,
+.textareaIcon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.textareaIcon {
+  top: 0.75rem;
+  transform: none;
+}
+
+/* Input styles */
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: #1a202c;
+  font-size: 1rem;
+}
+
+.input {
+  padding-left: 2.5rem;
+}
+
+.textarea {
+  padding-left: 2.5rem;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #4fd1c7;
+  box-shadow: 0 0 0 3px rgba(79, 209, 199, 0.1);
+  background: white;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Select specific styling */
+.select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.select option {
+  background: white;
+  color: #1a202c;
+}
+
+/* Submit button */
+.submitButton {
+  width: 100%;
+  background: linear-gradient(135deg, #4fd1c7, #2d7d7d);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(45, 125, 125, 0.2);
+}
+
+.submitButton:hover:not(.submitting) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(45, 125, 125, 0.3);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.submitButton.submitting {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.buttonIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Spinner animation */
+.spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Privacy note */
+.privacyNote {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 1rem 0.5rem;
+    min-height: auto;
+  }
+  
+  .formWrapper {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .formTitle {
+    font-size: 1.25rem;
+  }
+  
+  .fieldRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .form {
+    gap: 1.25rem;
+  }
+  
+  .statusMessage {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 0.5rem;
+  }
+  
+  .formWrapper {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  .formTitle {
+    font-size: 1.1rem;
+  }
+  
+  .formSubtitle {
+    font-size: 0.9rem;
+  }
+  
+  .input,
+  .select,
+  .textarea {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+  
+  .input {
+    padding-left: 2.2rem;
+  }
+  
+  .textarea {
+    padding-left: 2.2rem;
+    min-height: 100px;
+  }
+  
+  .submitButton {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .privacyNote {
+    font-size: 0.7rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .formWrapper,
+  .input,
+  .select,
+  .textarea,
+  .submitButton {
+    transition: none;
+  }
+  
+  .submitButton:hover {
+    transform: none;
+  }
+  
+  .submitButton:active {
+    transform: none;
+  }
+  
+  .spinner {
+    animation: none;
+    border: 2px solid white;
+    border-top: 2px solid transparent;
+  }
+}
+
+/* Print styles */
+@media print {
+  .formContainer {
+    background: none;
+    min-height: auto;
+  }
+  
+  .formWrapper {
+    box-shadow: none;
+    border: 2px solid #2d7d7d;
+    page-break-inside: avoid;
+  }
+  
+  .submitButton {
+    background: none;
+    color: #2d7d7d;
+    border: 2px solid #2d7d7d;
+    box-shadow: none;
+  }
+  
+  .statusMessage {
+    border-width: 2px;
+  }
+}
