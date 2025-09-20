@@ -23,6 +23,14 @@ const Hero = ({ onCtaClick }) => {
         <h1 className={styles.title}>
           Counseling with Southern California Soul
         </h1>
+        
+        {/* NEW: Credentials badge */}
+        <div className={styles.credentialsBadge}>
+          <span className={styles.credentialText}>
+            Licensed Therapist • AMFT #[License Number]
+          </span>
+        </div>
+        
         <p className={styles.tagline}>
           Roll with life, heal at your pace
         </p>

@@ -21,13 +21,37 @@ const About = () => {
             
             <div className={styles.credentials}>
               <h3>Professional Credentials</h3>
-              <p><strong>AMFT</strong> - Associate Marriage & Family Therapist</p>
-              <p>Located in Southern California</p>
-              <p>Offering an intergrative approach including DBT, CBT, and Mindfulness-Based Approaches</p>
+              <div className={styles.credentialsList}>
+                <div className={styles.credentialItem}>
+                  <span className={styles.credentialBadge}>AMFT</span>
+                  <span className={styles.credentialDescription}>Associate Marriage & Family Therapist</span>
+                </div>
+                <div className={styles.credentialItem}>
+                  <span className={styles.credentialBadge}>License #</span>
+                  <span className={styles.credentialDescription}>[Your License Number]</span>
+                </div>
+                <div className={styles.credentialItem}>
+                  <span className={styles.credentialBadge}>Location</span>
+                  <span className={styles.credentialDescription}>Southern California</span>
+                </div>
+                <div className={styles.credentialItem}>
+                  <span className={styles.credentialBadge}>Approaches</span>
+                  <span className={styles.credentialDescription}>DBT, CBT, and Mindfulness-Based Therapy</span>
+                </div>
+              </div>
             </div>
           </div>
           
           <div className={styles.imageContent}>
+            {/* NEW: Photo placeholder */}
+            <div className={styles.photoContainer}>
+              <img 
+                src="/doctor.jpeg" 
+                alt="Art Minas, Licensed Marriage & Family Therapist"
+                className={styles.therapistPhoto}
+              />
+            </div>
+            
             <div className={styles.quoteBox}>
               <blockquote>
                 "Self-care is not selfish;<br />it's essential"

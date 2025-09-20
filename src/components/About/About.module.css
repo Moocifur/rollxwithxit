@@ -26,7 +26,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: start;
 }
 
 /* Text content */
@@ -44,46 +44,109 @@
   margin-bottom: 2rem;
 }
 
-/* Credentials box */
+/* ENHANCED: Credentials styling */
 .credentials {
   background: linear-gradient(135deg, #f0fdfc, #e6fffa);
   padding: 2rem;
   border-radius: 15px;
   margin-top: 2rem;
+  border: 1px solid rgba(79, 209, 199, 0.2);
+  box-shadow: 0 4px 15px rgba(45, 125, 125, 0.08);
 }
 
 .credentials h3 {
   color: #2d7d7d;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
+  text-align: center;
 }
 
-.credentials p {
-  margin-bottom: 0.5rem;
-  color: #374151;
-  font-size: 1rem;
+.credentialsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.credentials p:last-child {
-  margin-bottom: 0;
-}
-
-.credentials strong {
-  color: #2d7d7d;
-  font-weight: 700;
-}
-
-/* Image/Quote section */
-.imageContent {
+.credentialItem {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(79, 209, 199, 0.1);
 }
 
+.credentialItem:last-child {
+  border-bottom: none;
+}
+
+.credentialBadge {
+  background: linear-gradient(135deg, #4fd1c7, #2d7d7d);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  min-width: 80px;
+  text-align: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(45, 125, 125, 0.2);
+}
+
+.credentialDescription {
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Image/Content section */
+.imageContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* NEW: Photo placeholder styling */
+.photoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+
+
+/* here  */
+.therapistPhoto {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(45, 125, 125, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.therapistPhoto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(45, 125, 125, 0.25);
+}
+
+.photoText {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.photoPlaceholder:hover .photoText {
+  color: #2d7d7d;
+}
+
+/* Quote box styling */
 .quoteBox {
   background: linear-gradient(135deg, #4fd1c7, #2d7d7d);
-  height: 400px;
+  height: 200px;
   width: 100%;
   border-radius: 15px;
   display: flex;
@@ -94,10 +157,12 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
+  box-shadow: 0 8px 25px rgba(45, 125, 125, 0.2);
 }
 
 .quoteBox:hover {
   transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(45, 125, 125, 0.3);
 }
 
 .quoteBox blockquote {
@@ -122,7 +187,7 @@
   
   .content {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
   }
   
   .textContent {
@@ -139,11 +204,29 @@
   }
   
   .credentials h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .credentialItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+  
+  .credentialBadge {
+    min-width: auto;
+    align-self: flex-start;
+  }
+  
+  .photoPlaceholder {
+    width: 180px;
+    height: 220px;
   }
   
   .quoteBox {
-    height: 300px;
+    height: 180px;
   }
   
   .quoteBox blockquote {
@@ -166,7 +249,7 @@
   }
   
   .content {
-    gap: 1.5rem;
+    gap: 2rem;
   }
   
   .textContent {
@@ -184,16 +267,35 @@
   }
   
   .credentials h3 {
-    font-size: 1rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
   }
   
-  .credentials p {
+  .credentialBadge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .credentialDescription {
     font-size: 0.9rem;
   }
   
+  .photoPlaceholder {
+    width: 160px;
+    height: 200px;
+  }
+  
+  .photoIcon svg {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .photoText {
+    font-size: 0.8rem;
+  }
+  
   .quoteBox {
-    height: 250px;
+    height: 160px;
   }
   
   .quoteBox blockquote {
@@ -204,17 +306,20 @@
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .quoteBox {
+  .quoteBox,
+  .photoPlaceholder {
     transition: none;
   }
   
-  .quoteBox:hover {
+  .quoteBox:hover,
+  .photoPlaceholder:hover {
     transform: none;
   }
 }
 
 /* Focus states */
-.quoteBox:focus-within {
+.quoteBox:focus-within,
+.photoPlaceholder:focus-within {
   outline: 3px solid #4fd1c7;
   outline-offset: 3px;
 }
@@ -234,6 +339,17 @@
   .credentials {
     background: none;
     border: 1px solid #e2e8f0;
+  }
+  
+  .credentialBadge {
+    background: none;
+    color: #2d7d7d;
+    border: 1px solid #2d7d7d;
+  }
+  
+  .photoPlaceholder {
+    background: none;
+    border: 2px solid #cbd5e1;
   }
   
   .quoteBox {

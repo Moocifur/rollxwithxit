@@ -26,11 +26,38 @@
 .title {
   font-size: 3.5rem;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
   font-weight: 300;
   margin: 0 0 1rem 0;
   line-height: 1.1;
   letter-spacing: -0.02em;
+}
+
+/* NEW: Credentials badge styling */
+.credentialsBadge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 8px 20px;
+  margin: 0 auto 1.5rem auto;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.credentialsBadge:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.credentialText {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 
 /* Tagline */
@@ -79,6 +106,15 @@
     font-size: 2.5rem;
   }
   
+  .credentialsBadge {
+    margin-bottom: 1rem;
+    padding: 6px 16px;
+  }
+  
+  .credentialText {
+    font-size: 0.8rem;
+  }
+  
   .tagline {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
@@ -98,6 +134,16 @@
   .title {
     font-size: 2rem;
     line-height: 1.2;
+  }
+  
+  .credentialsBadge {
+    padding: 5px 14px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .credentialText {
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
   }
   
   .tagline {
@@ -120,6 +166,10 @@
     font-size: 4rem;
   }
   
+  .credentialText {
+    font-size: 1rem;
+  }
+  
   .tagline {
     font-size: 1.4rem;
   }
@@ -132,17 +182,25 @@
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .ctaButton {
+  .ctaButton,
+  .credentialsBadge {
     transition: none;
   }
   
-  .ctaButton:hover {
+  .ctaButton:hover,
+  .credentialsBadge:hover {
     transform: none;
   }
   
   .ctaButton:active {
     transform: none;
   }
+}
+
+/* Focus states for accessibility */
+.credentialsBadge:focus-within {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
 }
 
 /* Print styles */
@@ -158,6 +216,17 @@
   .tagline {
     text-shadow: none;
     color: #2d7d7d;
+  }
+  
+  .credentialsBadge {
+    background: none;
+    border: 2px solid #2d7d7d;
+    backdrop-filter: none;
+  }
+  
+  .credentialText {
+    color: #2d7d7d;
+    text-shadow: none;
   }
   
   .ctaButton {

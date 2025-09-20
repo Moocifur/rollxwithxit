@@ -34,7 +34,7 @@
 /* Philosophy items with glassmorphism effect */
 .item {
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 15px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
