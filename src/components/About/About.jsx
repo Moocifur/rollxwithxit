@@ -46,7 +46,7 @@ const About = () => {
             {/* Enhanced photo with comprehensive alt text */}
             <div className={styles.photoContainer}>
               <img 
-                src="/doctor.jpeg" 
+                src="/doctor.png" 
                 alt="Professional headshot of Art Minas, Licensed Marriage and Family Therapist, smiling warmly in a relaxed outdoor setting that reflects the Southern California therapeutic approach of Roll with It"
                 className={styles.therapistPhoto}
                 loading="lazy"
