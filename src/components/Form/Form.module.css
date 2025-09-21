@@ -1,4 +1,4 @@
-/* Form Component Template Styles */
+/* Enhanced Form Component Styles with Validation & Focus States */
 
 /* Main form container */
 .formContainer {
@@ -25,6 +25,11 @@
   box-shadow: 0 15px 40px rgba(45, 125, 125, 0.12);
 }
 
+/* Enhanced focus indicator for the entire form */
+.formWrapper:focus-within {
+  box-shadow: 0 15px 40px rgba(45, 125, 125, 0.12), 0 0 0 2px rgba(79, 209, 199, 0.3);
+}
+
 /* Form header */
 .formHeader {
   margin-bottom: 2rem;
@@ -46,6 +51,18 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .successMessage {
@@ -104,11 +121,70 @@
   color: #374151;
 }
 
-/* Input wrapper for icons */
+/* Enhanced input wrapper for validation states */
 .inputWrapper {
   position: relative;
+  transition: all 0.3s ease;
 }
 
+/* Validation state styles */
+.inputWrapper.success {
+  --border-color: #10b981;
+  --focus-color: #10b981;
+  --icon-color: #10b981;
+}
+
+.inputWrapper.error {
+  --border-color: #ef4444;
+  --focus-color: #ef4444;
+  --icon-color: #ef4444;
+}
+
+.inputWrapper.success .input,
+.inputWrapper.success .textarea {
+  border-color: var(--border-color);
+  background: #f0fdf4;
+}
+
+.inputWrapper.error .input,
+.inputWrapper.error .textarea {
+  border-color: var(--border-color);
+  background: #fef2f2;
+}
+
+/* Validation icons */
+.validationIcon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  z-index: 2;
+}
+
+.validationIcon.success {
+  background: #10b981;
+  color: white;
+}
+
+.validationIcon.error {
+  background: #ef4444;
+  color: white;
+}
+
+/* Adjust validation icon for textarea */
+.inputWrapper:has(.textarea) .validationIcon {
+  top: 0.75rem;
+  transform: none;
+}
+
+/* Input icons */
 .inputIcon,
 .textareaIcon {
   position: absolute;
@@ -119,6 +195,8 @@
   height: 1.25rem;
   color: #9ca3af;
   pointer-events: none;
+  transition: color 0.3s ease;
+  z-index: 1;
 }
 
 .textareaIcon {
@@ -126,37 +204,68 @@
   transform: none;
 }
 
-/* Input styles */
+/* Update icon colors based on validation state */
+.inputWrapper.success .inputIcon,
+.inputWrapper.success .textareaIcon {
+  color: var(--icon-color);
+}
+
+.inputWrapper.error .inputIcon,
+.inputWrapper.error .textareaIcon {
+  color: var(--icon-color);
+}
+
+/* Enhanced input styles with better focus indicators */
 .input,
 .select,
 .textarea {
   width: 100%;
   padding: 0.75rem;
   background: #f8fafc;
-  border: 1px solid #d1d5db;
+  border: 2px solid #d1d5db;
   border-radius: 8px;
   transition: all 0.3s ease;
   color: #1a202c;
   font-size: 1rem;
+  font-family: inherit;
 }
 
 .input {
   padding-left: 2.5rem;
+  padding-right: 2.5rem; /* Space for validation icon */
 }
 
 .textarea {
   padding-left: 2.5rem;
+  padding-right: 2.5rem; /* Space for validation icon */
   resize: vertical;
   min-height: 120px;
+  font-family: inherit;
+  line-height: 1.5;
 }
 
+/* Enhanced focus states */
 .input:focus,
 .select:focus,
 .textarea:focus {
   outline: none;
   border-color: #4fd1c7;
-  box-shadow: 0 0 0 3px rgba(79, 209, 199, 0.1);
+  box-shadow: 0 0 0 3px rgba(79, 209, 199, 0.2);
   background: white;
+  transform: translateY(-1px);
+}
+
+/* Validation state focus */
+.inputWrapper.success .input:focus,
+.inputWrapper.success .textarea:focus {
+  border-color: var(--focus-color);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.inputWrapper.error .input:focus,
+.inputWrapper.error .textarea:focus {
+  border-color: var(--focus-color);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
 }
 
 .input::placeholder,
@@ -164,22 +273,23 @@
   color: #9ca3af;
 }
 
-/* Select specific styling */
-.select {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 1rem;
-  padding-right: 2.5rem;
-  cursor: pointer;
+/* Error text styling */
+.errorText {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  animation: slideIn 0.2s ease-out;
 }
 
-.select option {
-  background: white;
-  color: #1a202c;
+.errorText::before {
+  content: "⚠";
+  font-size: 0.75rem;
 }
 
-/* Submit button */
+/* Enhanced submit button with loading states */
 .submitButton {
   width: 100%;
   background: linear-gradient(135deg, #4fd1c7, #2d7d7d);
@@ -196,6 +306,15 @@
   justify-content: center;
   gap: 0.5rem;
   box-shadow: 0 4px 15px rgba(45, 125, 125, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced button focus */
+.submitButton:focus {
+  outline: none;
+  box-shadow: 0 4px 15px rgba(45, 125, 125, 0.2), 0 0 0 3px rgba(79, 209, 199, 0.3);
+  transform: translateY(-1px);
 }
 
 .submitButton:hover:not(.submitting) {
@@ -203,13 +322,31 @@
   box-shadow: 0 8px 25px rgba(45, 125, 125, 0.3);
 }
 
-.submitButton:active {
+.submitButton:active:not(.submitting) {
   transform: translateY(0);
 }
 
+/* Loading state */
 .submitButton.submitting {
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: 0.8;
+  background: linear-gradient(135deg, #94a3b8, #64748b);
+}
+
+.submitButton.submitting::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 .buttonIcon {
@@ -217,32 +354,52 @@
   height: 1.25rem;
 }
 
-/* Spinner animation */
+/* Enhanced spinner with pulsing effect */
 .spinner {
   width: 1.25rem;
   height: 1.25rem;
   border: 2px solid transparent;
   border-top: 2px solid white;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite, pulse 2s ease-in-out infinite;
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* Privacy note */
-.privacyNote {
-  font-size: 0.75rem;
-  color: #9ca3af;
-  text-align: center;
-  margin: 0;
-  line-height: 1.4;
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Enhanced keyboard navigation */
+.form *:focus {
+  outline: 2px solid #4fd1c7;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip focus outline for mouse users */
+.form *:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .input,
+  .textarea {
+    border-width: 3px;
+  }
+  
+  .validationIcon {
+    border: 2px solid currentColor;
+  }
+  
+  .submitButton {
+    border: 2px solid white;
+  }
 }
 
 /* Responsive design */
@@ -290,10 +447,6 @@
     font-size: 1.1rem;
   }
   
-  .formSubtitle {
-    font-size: 0.9rem;
-  }
-  
   .input,
   .select,
   .textarea {
@@ -303,10 +456,12 @@
   
   .input {
     padding-left: 2.2rem;
+    padding-right: 2.2rem;
   }
   
   .textarea {
     padding-left: 2.2rem;
+    padding-right: 2.2rem;
     min-height: 100px;
   }
   
@@ -315,19 +470,22 @@
     font-size: 0.9rem;
   }
   
-  .privacyNote {
+  .errorText {
     font-size: 0.7rem;
   }
 }
 
-/* Accessibility */
+/* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
   .formWrapper,
   .input,
   .select,
   .textarea,
-  .submitButton {
+  .submitButton,
+  .statusMessage,
+  .errorText {
     transition: none;
+    animation: none;
   }
   
   .submitButton:hover {
@@ -342,6 +500,10 @@
     animation: none;
     border: 2px solid white;
     border-top: 2px solid transparent;
+  }
+  
+  .submitButton.submitting::before {
+    animation: none;
   }
 }
 
@@ -367,5 +529,9 @@
   
   .statusMessage {
     border-width: 2px;
+  }
+  
+  .validationIcon {
+    display: none;
   }
 }

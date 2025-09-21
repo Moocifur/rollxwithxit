@@ -43,13 +43,42 @@ const About = () => {
           </div>
           
           <div className={styles.imageContent}>
-            {/* NEW: Photo placeholder */}
+            {/* Enhanced photo with comprehensive alt text */}
             <div className={styles.photoContainer}>
               <img 
                 src="/doctor.jpeg" 
-                alt="Art Minas, Licensed Marriage & Family Therapist"
+                alt="Professional headshot of Art Minas, Licensed Marriage and Family Therapist, smiling warmly in a relaxed outdoor setting that reflects the Southern California therapeutic approach of Roll with It"
                 className={styles.therapistPhoto}
+                loading="lazy"
+                onError={(e) => {
+                  // Fallback for missing image
+                  e.target.style.display = 'none';
+                  e.target.nextElementSibling.style.display = 'flex';
+                }}
               />
+              
+              {/* Fallback placeholder that's hidden by default */}
+              <div className={styles.photoPlaceholder} style={{ display: 'none' }}>
+                <div className={styles.photoIcon}>
+                  <svg 
+                    width="60" 
+                    height="60" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="1" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <p className={styles.photoText}>
+                  Professional photo<br />coming soon
+                </p>
+              </div>
             </div>
             
             <div className={styles.quoteBox}>
